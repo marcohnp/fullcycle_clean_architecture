@@ -57,4 +57,69 @@ describe("Unit testss for notifications", () => {
 
     expect(notification.getErrors()).toEqual([error]);
   });
+
+
+  it("should create products errors", () => {
+    const notification = new Notification();
+    const error = {
+      message: "Id is required",
+      context: "product",
+    };
+
+    notification.addError(error);
+
+    expect(notification.messages("product")).toBe("product: Id is required,");
+
+    const error2 = {
+      message: "Name is required",
+      context: "product",
+    };
+    notification.addError(error2);
+
+    expect(notification.messages("product")).toBe(
+      "product: Id is required,product: Name is required,"
+    );
+
+    const error3 = {
+      message: "Price must be greater than zero",
+      context: "product",
+    };
+    notification.addError(error3);
+
+    expect(notification.messages("product")).toBe(
+      "product: Id is required,product: Name is required,product: Price must be greater than zero,"
+    );
+
+    const error4 = {
+      message: "error customer",
+      context: "customer",
+    };
+    notification.addError(error4);
+
+    expect(notification.messages()).toBe(
+      "product: Id is required,product: Name is required,product: Price must be greater than zero,customer: error customer,"
+    );
+  });
+
+  it("should check if notification has at least one error for product", () => {
+    const notification = new Notification();
+    const error = {
+      message: "Id is required",
+      context: "product",
+    };
+    notification.addError(error);
+
+    expect(notification.hasErrors()).toBe(true);
+  });
+
+  it("should get all errors props for product", () => {
+    const notification = new Notification();
+    const error = {
+      message: "Id is required",
+      context: "product",
+    };
+    notification.addError(error);
+
+    expect(notification.getErrors()).toEqual([error]);
+  });
 });

@@ -12,3 +12,8 @@
 Para esse desafio foi criado api para criar product e listar.
    
 **Branch com implementação do desafio**: feature/desafio_api_products
+
+### Desafio 3: Notification Pattern em Products
+**Descrição**: Implementar o Notification Pattern para Product
+   
+**Branch com implementação do desafio**: feature/desafio_notification_product
