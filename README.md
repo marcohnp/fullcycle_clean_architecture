@@ -17,3 +17,8 @@ Para esse desafio foi criado api para criar product e listar.
 **Descrição**: Implementar o Notification Pattern para Product
    
 **Branch com implementação do desafio**: feature/desafio_notification_product
+
+### Desafio 4: Validação de Products
+**Descrição**: Implementar o processo de validação usando a biblioteca Yup.
+   
+**Branch com implementação do desafio**: feature/desafio_validator_product
